@@ -8,7 +8,7 @@
 <div class="row post-meta-entry">
   <i data-feather="tag"></i>
   {{ range . }}
-  {{ $href := print (absURL "tags/") (urlize .) }}
+  {{ $href := print (relURL "tags/") (urlize .) }}
   <a class="post-tag" href="{{ $href }}">#{{ . }}</a>
   {{ end }}
 </div>
