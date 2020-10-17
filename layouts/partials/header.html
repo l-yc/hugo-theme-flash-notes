@@ -1,11 +1,11 @@
 <div>
   <nav id="nav">
-    <a class="nav-link" href="{{ .Site.Home.Permalink }}">
+    <a class="nav-link" href="{{ .Site.Home.RelPermalink }}">
       <i data-feather="home"></i>
     </a>
 
     {{ range .Site.Sections }}
-    <a class="nav-link" href="{{ .Permalink }}">
+    <a class="nav-link" href="{{ .RelPermalink }}">
       {{ .Title }}
     </a>
     {{ end }}
