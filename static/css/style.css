@@ -72,3 +72,34 @@ pre {
 code, code * {
   font-family: 'Fira Code', monospace;
 }
+
+img {
+  max-width: 100%;
+}
+
+/* list */
+
+.taxonomy-list {
+  display:flex;
+  flex-flow:row;
+}
+
+.taxonomy-list > div {
+  display:flex;
+  flex-flow:row;
+  align-items:center;
+  margin: .1rem 0;
+}
+
+.taxonomy-list > .date {
+  flex:0.2;
+  margin-right:1rem;
+}
+
+.taxonomy-list > .title {
+  flex:1;
+}
+
+.taxonomy-list > .tags {
+  flex:1;
+}

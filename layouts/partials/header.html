@@ -1,14 +1,17 @@
 <div>
-    <nav id="nav">
-        {{ range .Site.Menus.main }}
-        <a class="nav-link" href="{{ .URL }}">
-        {{ if .Pre }}
-        {{ $icon := printf "<i data-feather=\"%s\"></i> " .Pre | safeHTML }}
-        {{ $icon }}
-        {{ end }}
-        {{ $text := print .Name | safeHTML }}
-        {{ $text }}
-        </a>
-        {{ end }}
-    </nav>
+  <nav id="nav">
+    <a class="nav-link" href="{{ .Site.Home.Permalink }}">
+      <i data-feather="home"></i>
+    </a>
+
+    {{ range .Site.Sections }}
+    <a class="nav-link" href="{{ .Permalink }}">
+      {{ .Title }}
+    </a>
+    {{ end }}
+
+    {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+    <a class="nav-link" href="{{ "/" | relLangURL }}{{ $taxonomyname | urlize }}">{{ $taxonomyname }}</a>
+    {{ end }}
+  </nav>
 </div>

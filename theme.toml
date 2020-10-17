@@ -3,9 +3,9 @@
 
 name = "Flash Notes"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+licenselink = "https://github.com/l-yc/flash-notes/blob/master/LICENSE"
 description = ""
-homepage = "http://example.com/"
+homepage = "http://github.com/l-yc/flash-notes"
 tags = []
 features = []
 min_version = "0.41.0"
