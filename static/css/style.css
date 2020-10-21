@@ -103,3 +103,25 @@ img {
 .taxonomy-list > .tags {
   flex:1;
 }
+
+/* table */
+table {
+  //border-bottom: solid 2px #eee;
+  border-collapse: collapse;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  margin: 2rem auto;
+}
+
+table th, table td {
+  padding: .4rem .8rem;
+}
+
+table thead tr {
+  box-shadow: 0 2px 2px 2px #ddd;
+  border-bottom: solid 2px black;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #eee;
+}
