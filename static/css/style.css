@@ -14,12 +14,12 @@ body {
   padding: .2rem .4rem;
 }
 
-nav {
+#site-nav {
   padding: .2rem .4rem;
   border-bottom: solid .1rem #911
 }
 
-nav a {
+#site-nav a {
   padding: .2rem .4rem;
 }
 
@@ -128,3 +128,14 @@ table thead tr {
 table tbody tr:nth-child(odd) {
   background-color: #eee;
 }
+
+/* toc */
+aside {
+  background-color: #eee;
+  padding: .8rem;
+  border: solid 2px black;
+  margin-bottom: 4rem;
+}
+aside h5 { margin: 0; margin-bottom: .8rem; }
+aside ol, ul { margin: 0 }
+aside li { list-style-type: katakana; }
