@@ -78,6 +78,17 @@ code, code * {
 
 img {
   max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+blockquote {
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 0 40px;
+  border-left: 4px solid #000;
+  border-color: #777;
+  color: #777;
 }
 
 /* list */
