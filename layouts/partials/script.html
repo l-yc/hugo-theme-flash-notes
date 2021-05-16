@@ -3,3 +3,50 @@
   feather.replace()
 </script>
 {{ if .Params.katex }}{{ partial "katex.html" . }}{{ end }}
+
+
+
+<!-- pdf embed -->
+<!-- cdn: https://cdnjs.com/libraries/pdf.js -->
+<!-- https://mozilla.github.io/pdf.js/examples/index.html#interactive-examples -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js" integrity="sha512-SG4yH2eYtAR5eK4/VL0bhqOsIb6AZSWAJjHOCmfhcaqTkDviJFoar/VYdG96iY7ouGhKQpAg3CMJ22BrZvhOUA==" crossorigin="anonymous"></script>
+
+<script>
+  // Loaded via <script> tag, create shortcut to access PDF.js exports.
+  let pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+  // The workerSrc property shall be specified.
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.worker.min.js';
+
+  document.querySelectorAll('.embed-pdf').forEach(doc => {
+    let loadingTask = pdfjsLib.getDocument(doc.dataset.src);
+
+    loadingTask.promise.then(function(pdf) {
+      // you can now use *pdf* here
+      console.log('Number of pages: ', pdf.numPages);
+
+      for (let i = 1; i <= pdf.numPages; ++i) {
+        let canvas = document.createElement('canvas');
+        canvas.classList.add('embed-pdf-page');
+        let context = canvas.getContext('2d');
+        context.fillText('Loading page ' + i, 10, 50);
+        doc.appendChild(canvas);
+
+        pdf.getPage(i).then(function(page) {
+          // you can now use *page* here
+          let scale = 1;
+          let viewport = page.getViewport({ scale: scale, });
+
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          let renderContext = {
+            canvasContext: context,
+            viewport: viewport
+          };
+          page.render(renderContext);
+        });
+      }
+    });
+  });
+</script>

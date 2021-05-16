@@ -1,0 +1,7 @@
+<!--<iframe src="{{ .Get 0 }}"></iframe>-->
+
+{{ with .Get 0 }}
+<div class="embed-pdf" data-src="{{.}}"></div>
+{{ else }}
+{{ errorf "missing value for pdf url" .Position }}
+{{ end }}

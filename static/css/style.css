@@ -162,3 +162,14 @@ aside li { list-style-type: katakana; }
   background-color: inherit;
   transition: all .2s ease-in .6s;
 }
+
+.embed-pdf {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.embed-pdf-page {
+  border: 1px solid #eee;
+  box-shadow: 0 0 1px .4px #f7f7f7;
+}
