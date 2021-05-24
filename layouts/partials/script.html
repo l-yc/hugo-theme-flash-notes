@@ -34,9 +34,13 @@
 
         pdf.getPage(i).then(function(page) {
           // you can now use *page* here
-          let scale = 1;
-          let viewport = page.getViewport({ scale: scale, });
+          let viewport = page.getViewport({ scale: 1, });
+          canvas.style.height = viewport.height + 'px';
+          canvas.style.width = viewport.width + 'px';
 
+          // apply `dpi = canvas.height / canvas.style.height` to fix blur
+          let dpi = window.devicePixelRatio; 
+          viewport = page.getViewport({ scale: dpi, });
           canvas.height = viewport.height;
           canvas.width = viewport.width;
 
