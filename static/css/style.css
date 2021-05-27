@@ -106,21 +106,20 @@ blockquote {
 }
 
 .taxonomy-list > .date {
-  flex:0.2;
-  margin-right:1rem;
+  width: 5rem;
+  margin-right: 1.2rem;
 }
 
 .taxonomy-list > .title {
-  flex:1;
+  flex: 1;
 }
 
 .taxonomy-list > .tags {
-  flex:1;
+  flex: 1;
 }
 
 /* table */
 table {
-  //border-bottom: solid 2px #eee;
   border-collapse: collapse;
   border-top: solid 2px black;
   border-bottom: solid 2px black;

@@ -1,0 +1,16 @@
+<div class="spoiler-block hidden">
+  <div class="header">
+    {{ with .Get 0 }}
+      {{.}}
+    {{ else }}
+      {{ with .Get "title" }}
+        {{.}}
+      {{ else }}
+        Spoiler
+      {{ end }}
+    {{ end }}
+  </div>
+  <div class="content">
+    {{ .Inner | markdownify }}
+  </div>
+</div>
