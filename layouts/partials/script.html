@@ -54,3 +54,11 @@
     });
   });
 </script>
+
+<script>
+  Array.from(document.querySelectorAll('.spoiler-block')).forEach((el) => {
+    el.addEventListener('click', (evt) => {
+      el.classList.toggle('hidden');
+    });
+  });
+</script>

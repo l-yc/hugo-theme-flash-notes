@@ -162,6 +162,37 @@ aside li { list-style-type: katakana; }
   transition: all .2s ease-in .6s;
 }
 
+.spoiler-block {
+  border: 2px solid black;
+}
+
+.spoiler-block .header {
+  color: #911;
+  position: relative;
+  font-weight: bold;
+  padding: .6rem 1rem;
+}
+
+.spoiler-block .header:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.spoiler-block .header:hover::after {
+  cursor: pointer;
+  content: '⇲';
+  position: absolute;
+  right: 1rem;
+}
+
+.spoiler-block.hidden .content {
+  display: none;
+}
+
+.spoiler-block .content {
+  margin-top: .6rem;
+}
+
 .embed-pdf {
   display: flex;
   flex-flow: column nowrap;
