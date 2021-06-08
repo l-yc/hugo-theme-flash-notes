@@ -2,13 +2,20 @@
 <html>
     {{- partial "head.html" . -}}
     <body>
-      <div class="body-wrapper">
-        {{- partial "header.html" . -}}
+      {{- partial "header.html" . -}}
+
+      <div class="flex-wrapper">
+        <div id="sidebar">
+        </diV>
         <div id="content">
-        {{- block "main" . }}{{- end }}
+          {{- block "main" . }}{{- end }}
         </div>
-        {{- partial "footer.html" . -}}
+        <div id="aside">
+          {{- block "aside" . }}{{- end }}
+        </div>
       </div>
+
+      {{- partial "footer.html" . -}}
       {{- partial "script.html" . -}}
     </body>
 </html>

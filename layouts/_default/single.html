@@ -4,14 +4,18 @@
   {{ partial "metadata.html" . }}
 </header>
 
-{{ if ne .Params.toc false }}
-<aside>
-  <h5>TOC</h5>
-  {{ .TableOfContents }}
-</aside>
-{{ end }}
-
 <article>
 {{ .Content }}
 </article>
+{{ end }}
+
+{{ define "aside" }}
+<aside>
+  {{ if ne .Params.toc false }}
+  <div id="toc">
+    <h5>TOC</h5>
+    {{ .TableOfContents }}
+  </div>
+  {{ end }}
+</aside>
 {{ end }}
