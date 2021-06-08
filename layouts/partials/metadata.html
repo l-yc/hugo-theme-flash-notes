@@ -1,15 +1,24 @@
-{{ $dateTime := .PublishDate.Format "2006-01-02" }}
-{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-<div class="row post-meta-entry">
-  <i data-feather="calendar"></i>
-  <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
-</div>
-{{ with .Params.tags }}
-<div class="row post-meta-entry">
-  <i data-feather="tag"></i>
-  {{ range . }}
-  {{ $href := print (relURL "tags/") (urlize .) }}
-  <a class="post-tag" href="{{ $href }}">#{{ . }}</a>
+<div class="post-meta">
+  {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+  {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+  <div class="row post-meta-entry">
+    <i data-feather="calendar"></i>
+    <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+  </div>
+
+  <div class="row post-meta-entry">
+    <i data-feather="user"></i>
+    {{ .Params.Author | default "Anonymous" }}
+  </div>
+
+  {{ with .Params.tags }}
+  <div class="row post-meta-entry">
+    <i data-feather="tag"></i>
+    {{ range . }}
+    {{ $href := print (relURL "tags/") (urlize .) }}
+    <a class="post-tag" href="{{ $href }}">#{{ . }}</a>
+    {{ end }}
+  </div>
   {{ end }}
+
 </div>
-{{ end }}

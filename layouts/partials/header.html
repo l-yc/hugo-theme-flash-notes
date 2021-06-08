@@ -11,7 +11,7 @@
     {{ end }}
 
     {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
-    <a class="nav-link" href="{{ "/" | relLangURL }}{{ $taxonomyname | urlize }}">{{ $taxonomyname }}</a>
+    <a class="nav-link" href="{{ "/" | relLangURL }}{{ $taxonomyname | urlize }}">{{ $taxonomyname | title }}</a>
     {{ end }}
   </nav>
 </div>

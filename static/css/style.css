@@ -16,7 +16,7 @@ a {
 }
 
 a:hover {
-  box-shadow: 0 .2rem 0 0 #000;
+  box-shadow: 0 .2ex 0 0 #000;
 }
 
 /* nav */
