@@ -106,16 +106,17 @@ blockquote {
   margin: .1rem 0;
 }
 
-.taxonomy-list > .date {
+.taxonomy-list > .index {
   width: 5rem;
   margin-right: 1.2rem;
 }
 
 .taxonomy-list > .title {
   flex: 1;
+  padding-right: 1rem;
 }
 
-.taxonomy-list > .tags {
+.taxonomy-list > .fluff {
   flex: 1;
 }
 
