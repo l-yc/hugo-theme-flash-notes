@@ -1,0 +1,95 @@
+<div class="quiz">
+  <div class="header">
+    {{ with .Get 0 }}
+      {{.}}
+    {{ else }}
+      {{ with .Get "title" }}
+        {{.}}
+      {{ else }}
+        Quiz
+      {{ end }}
+    {{ end }}
+  </div>
+  <div class="content">
+    {{ $csv := .Inner | transform.Unmarshal (dict "delimiter" ";") }}
+    {{ range $csv }}
+    <ol>
+      <li class="question">
+        <div class="prompt">{{ index . 0 }}</div>
+        <div class="answer hidden">{{ index . 1 }}</div>
+      </li>
+    </ol>
+    {{ end }}
+  </div>
+</div>
+
+<style>
+.quiz {
+  border: 2px solid black;
+}
+
+.quiz .header {
+  color: #911;
+  position: relative;
+  font-weight: bold;
+  padding: .6rem 1rem;
+}
+
+.quiz .header:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.quiz .header:hover::after {
+  cursor: pointer;
+  content: '⇲';
+  position: absolute;
+  right: 1rem;
+}
+
+.quiz.hidden .content {
+  display: none;
+}
+
+.quiz .content {
+  margin-top: .6rem;
+}
+
+.quiz .content .question {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 1rem;
+}
+
+.quiz .content .question .prompt {
+  flex: 1;
+}
+
+.quiz .content .question .answer.hidden {
+  background-color: black;
+}
+
+.quiz .content .question .answer.hidden:hover {
+  cursor: pointer;
+}
+
+.quiz .content .question .answer {
+  border-bottom: 2px solid black;
+  width: 10rem;
+  text-align: center;
+}
+</style>
+
+<script>
+  Array.from(document.querySelectorAll('.quiz')).forEach((el) => {
+    el.addEventListener('click', (evt) => {
+      if (evt.target.matches('.header')) el.classList.toggle('hidden');
+    });
+  });
+
+  Array.from(document.querySelectorAll('.quiz .content .answer')).forEach((el) => {
+    el.addEventListener('click', (evt) => {
+      if (evt.target === el) el.classList.toggle('hidden');
+    });
+  });
+</script>
